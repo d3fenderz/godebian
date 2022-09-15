@@ -23,7 +23,7 @@ function installs() {
 	echo 'export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"' >> ~/.bashrc
-
+	source ~/.bashrc
 	echo -e "\033[96mI've installed net-tools, git, exiftool, pip (and a few Python packages like netifaces, requests, iptools, pwntools, or scapy), openvpn, wireshark and nvm\033[0m"
 }
 

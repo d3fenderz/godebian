@@ -36,6 +36,7 @@ function ufwrules() {
 	sudo ufw default deny forward
 	sudo ufw default deny incoming
 }
+
 function bluetooth() {
 	update-rc.d bluetooth remove
 	echo 'alias net-pf-31 off' >> /etc/modprobe.conf
@@ -55,7 +56,6 @@ function checkThat() {
 		;;
 	esac
 	done
-
 }
 
 checkThat "Do you want to update the system?" updates

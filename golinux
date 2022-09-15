@@ -33,6 +33,7 @@ function tweaks() {
 	sudo systemctl disable cups-browsed
 }
 
+# ⚠️: it does not monitor outgoing traffic
 function ufwrules() {
 	sudo systemctl enable ufw
 	sudo apt install gufw

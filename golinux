@@ -1,0 +1,70 @@
+#!/bin/bash
+# credits: jmau111
+
+if [ $UID -ne 0 ]
+then
+	echo -e "\e[1;31m Ride as root, please...\033[0m"
+	exit 1
+fi
+
+function updates() {
+	sudo apt update && sudo apt upgrade
+}
+
+function installs() {	
+	sudo apt install -y net-tools
+	sudo apt install -y apt-transport-https curl
+	sudo apt install -y git
+	sudo apt install -y exiftool
+	sudo apt install -y python3-pip && sudo pip install requests && sudo pip install scapy sudo pip install netifaces sudo pip install iptools && sudo pip install pwntools
+	sudo apt install -y openvpn
+	sudo apt install -y wireshark
+	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+	echo 'export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"' >> ~/.bashrc
+
+	echo -e "\033[96mI've installed net-tools, git, exiftool, pip (and a few Python packages like netifaces, requests, iptools, pwntools, or scapy), openvpn, wireshark and nvm\033[0m"
+}
+
+function tweaks() {
+	sudo apt-get purge --auto-remove telnetd ftp vsftpd samba nfs-kernel-server nfs-common
+	sudo systemctl stop cups-browsed
+	sudo systemctl disable cups-browsed
+}
+
+function ufwrules() {
+	sudo systemctl enable ufw
+	sudo apt install gufw
+	sudo ufw default deny forward
+	sudo ufw default deny incoming
+}
+function bluetooth() {
+	update-rc.d bluetooth remove
+	echo 'alias net-pf-31 off' >> /etc/modprobe.conf
+}
+
+function checkThat() {
+	echo -e "\033[96m$1\033[0m"
+	select yn in "Yes" "No"; do
+	case $yn in
+		Yes) 
+			$2
+			break
+		;;
+		No) 
+			echo "skipping to the next step..."
+			break && continue
+		;;
+	esac
+	done
+
+}
+
+checkThat "Do you want to update the system?" updates
+checkThat "Do you want to install some of my favorite Linux packages?" installs
+checkThat "Do you want to tweak the system and remove 'telnetd ftp vsftpd samba nfs-kernel-server nfs-common'?" tweaks
+checkThat "Do you want to have a basic firewall setup?" firewallrules
+checkThat "Can I disable Bluetooth (don't do it if you have wireless devices connected)?" bluetooth
+
+echo -e "\033[32mDone \\\0/\033[0m"

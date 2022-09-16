@@ -8,6 +8,7 @@ A simple Bash script to configure Debian-based Linux distros
 
 ```
 git clone https://github.com/jmau111/golinux
+sudo -s
 cd golinux
 bash golinux
 ```

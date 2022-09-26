@@ -39,6 +39,7 @@ function ufwrules() {
 	sudo apt install gufw
 	sudo ufw default deny forward
 	sudo ufw default deny incoming
+	sudo ufw logging on
 }
 function bluetooth() {
 	update-rc.d bluetooth remove

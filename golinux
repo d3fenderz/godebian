@@ -66,7 +66,7 @@ function checkThat() {
 checkThat "Do you want to update the system?" updates
 checkThat "Do you want to install some of my favorite Linux packages?" installs
 checkThat "Do you want to tweak the system and remove 'telnetd ftp vsftpd samba nfs-kernel-server nfs-common'?" tweaks
-checkThat "Do you want to have a basic firewall setup?" firewallrules
+checkThat "Do you want to have a basic firewall setup?" ufwrules
 checkThat "Can I disable Bluetooth (don't do it if you have wireless devices connected)?" bluetooth
 
 echo -e "\033[32mDone \\\0/\033[0m"

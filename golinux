@@ -16,7 +16,7 @@ function installs() {
 	sudo apt install -y apt-transport-https curl
 	sudo apt install -y git
 	sudo apt install -y exiftool
-	sudo apt install -y python3-pip && sudo pip install requests && sudo pip install scapy sudo pip install netifaces sudo pip install iptools && sudo pip install pwntools
+	sudo apt install -y python3-pip && sudo pip install requests && sudo pip install scapy && sudo pip install netifaces && sudo pip install iptools && sudo pip install pwntools
 	sudo apt install -y openvpn
 	sudo apt install -y wireshark
 	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash

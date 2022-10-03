@@ -46,7 +46,7 @@ function bluetooth() {
 	echo 'alias net-pf-31 off' >> /etc/modprobe.conf
 }
 
-function checkThat() {
+function check_that() {
 	echo -e "\033[96m$1\033[0m"
 	select yn in "Yes" "No"; do
 	case $yn in
@@ -63,10 +63,10 @@ function checkThat() {
 
 }
 
-checkThat "Do you want to update the system?" updates
-checkThat "Do you want to install some of my favorite Linux packages?" installs
-checkThat "Do you want to tweak the system and remove 'telnetd ftp vsftpd samba nfs-kernel-server nfs-common'?" tweaks
-checkThat "Do you want to have a basic firewall setup?" ufwrules
-checkThat "Can I disable Bluetooth (don't do it if you have wireless devices connected)?" bluetooth
+check_that "Do you want to update the system?" updates
+check_that "Do you want to install some of my favorite Linux packages?" installs
+check_that "Do you want to tweak the system and remove 'telnetd ftp vsftpd samba nfs-kernel-server nfs-common'?" tweaks
+check_that "Do you want to have a basic firewall setup?" ufwrules
+check_that "Can I disable Bluetooth (don't do it if you have wireless devices connected)?" bluetooth
 
 echo -e "\033[32mDone \\\0/\033[0m"

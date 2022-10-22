@@ -2,12 +2,12 @@
 
 A simple Bash script to configure Debian-based Linux distros
 
-![](https://github.com/jmau111/golinux/raw/main/screenshot.png)
+![](https://github.com/jmau111-org/golinux/raw/main/screenshot.png)
 
 ## How to use
 
 ```
-git clone https://github.com/jmau111/golinux
+git clone https://github.com/jmau111-org/golinux
 sudo -s
 cd golinux
 bash golinux

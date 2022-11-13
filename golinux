@@ -13,12 +13,8 @@ function updates() {
 
 function installs() {	
 	sudo apt install -y net-tools
-	sudo apt install -y apt-transport-https curl
-	sudo apt install -y git
-	sudo apt install -y exiftool
-	sudo apt install -y python3-pip && sudo pip install requests && sudo pip install scapy && sudo pip install netifaces && sudo pip install iptools && sudo pip install pwntools
-	sudo apt install -y openvpn
-	sudo apt install -y wireshark
+	sudo apt install -y apt-transport-https curl git exiftool openvpn wireshark
+	sudo apt install -y python3-pip && sudo pip install requests scapy netifaces iptools pwntools
 	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
 	echo 'export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -29,8 +25,7 @@ function installs() {
 
 function tweaks() {
 	sudo apt-get purge --auto-remove telnetd ftp vsftpd samba nfs-kernel-server nfs-common
-	sudo systemctl stop cups-browsed
-	sudo systemctl disable cups-browsed
+	sudo systemctl stop cups-browsed && sudo systemctl disable cups-browsed
 }
 
 # ⚠️: it does not monitor outgoing traffic

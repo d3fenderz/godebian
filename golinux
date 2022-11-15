@@ -3,58 +3,58 @@
 
 if [ $UID -ne 0 ]
 then
-	echo -e "\e[1;31m Ride as root, please...\033[0m"
-	exit 1
+    echo -e "\e[1;31m Ride as root, please...\033[0m"
+    exit 1
 fi
 
 function updates() {
-	sudo apt update && sudo apt upgrade
+    sudo apt update && sudo apt upgrade
 }
 
-function installs() {	
-	sudo apt install -y net-tools
-	sudo apt install -y apt-transport-https curl git exiftool openvpn wireshark
-	sudo apt install -y python3-pip && sudo pip install requests scapy netifaces iptools pwntools
-	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
-	echo 'export NVM_DIR="$HOME/.nvm"
+function installs() {    
+    sudo apt install -y net-tools
+    sudo apt install -y apt-transport-https curl git exiftool openvpn wireshark
+    sudo apt install -y python3-pip && sudo pip install requests scapy netifaces iptools pwntools
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+    echo 'export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"' >> ~/.bashrc
-	source ~/.bashrc
-	echo -e "\033[96mI've installed net-tools, git, exiftool, pip (and a few Python packages like netifaces, requests, iptools, pwntools, or scapy), openvpn, wireshark and nvm\033[0m"
+    source ~/.bashrc
+    echo -e "\033[96mI've installed net-tools, git, exiftool, pip (and a few Python packages like netifaces, requests, iptools, pwntools, or scapy), openvpn, wireshark and nvm\033[0m"
 }
 
 function tweaks() {
-	sudo apt-get purge --auto-remove telnetd ftp vsftpd samba nfs-kernel-server nfs-common
-	sudo systemctl stop cups-browsed && sudo systemctl disable cups-browsed
+    sudo apt-get purge --auto-remove telnetd ftp vsftpd samba nfs-kernel-server nfs-common
+    sudo systemctl stop cups-browsed && sudo systemctl disable cups-browsed
 }
 
 # ⚠️: it does not monitor outgoing traffic
 function ufwrules() {
-	sudo systemctl enable ufw
-	sudo apt install gufw
-	sudo ufw default deny forward
-	sudo ufw default deny incoming
-	sudo ufw logging on
+    sudo systemctl enable ufw
+    sudo apt install gufw
+    sudo ufw default deny forward
+    sudo ufw default deny incoming
+    sudo ufw logging on
 }
 function bluetooth() {
-	update-rc.d bluetooth remove
-	echo 'alias net-pf-31 off' >> /etc/modprobe.conf
+    update-rc.d bluetooth remove
+    echo 'alias net-pf-31 off' >> /etc/modprobe.conf
 }
 
 function check_that() {
-	echo -e "\033[96m$1\033[0m"
-	select yn in "Yes" "No"; do
-	case $yn in
-		Yes) 
-			$2
-			break
-		;;
-		No) 
-			echo "skipping to the next step..."
-			break && continue
-		;;
-	esac
-	done
+    echo -e "\033[96m$1\033[0m"
+    select yn in "Yes" "No"; do
+    case $yn in
+        Yes) 
+            $2
+            break
+        ;;
+        No) 
+            echo "skipping to the next step..."
+            break && continue
+        ;;
+    esac
+    done
 
 }
 

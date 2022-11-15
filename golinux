@@ -12,8 +12,8 @@ function updates() {
 }
 
 function installs() {
-    sudo apt install -y net-tools apt-transport-https curl git exiftool openvpn wireshark
-    sudo apt install -y python3-pip && sudo pip install requests scapy netifaces iptools pwntools
+    sudo apt install -y net-tools apt-transport-https curl git exiftool openvpn wireshark python3-pip
+    sudo pip install requests scapy netifaces iptools pwntools
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
     echo 'export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

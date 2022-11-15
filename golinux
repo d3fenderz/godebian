@@ -35,6 +35,7 @@ function ufwrules() {
     sudo ufw default deny incoming
     sudo ufw logging on
 }
+
 function bluetooth() {
     update-rc.d bluetooth remove
     echo 'alias net-pf-31 off' >> /etc/modprobe.conf

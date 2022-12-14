@@ -23,7 +23,7 @@ function installs() {
 }
 
 function tweaks() {
-    sudo apt-get purge --auto-remove telnetd ftp vsftpd samba nfs-kernel-server nfs-common
+    sudo apt-get purge --auto-remove telnetd telnet ftp vsftpd samba nfs-kernel-server nfs-common
     sudo systemctl stop cups-browsed && sudo systemctl disable cups-browsed
 }
 

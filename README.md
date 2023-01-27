@@ -17,6 +17,10 @@ bash golinux
 
 You can either select "1" to proceed or "2" to skip a specific step.
 
+## Why do I use the keyword `function`?
+
+To prevent nasty collisions with existing aliases, as I use generic names.
+
 ## Warnings
 
 Be careful. The script assumes you won't need many default configurations such as printers, FTP, telnet.

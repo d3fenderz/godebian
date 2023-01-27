@@ -9,11 +9,11 @@ then
     exit 1
 fi
 
-function updates() {
+updates() {
     sudo apt update && sudo apt upgrade
 }
 
-function installs() {
+installs() {
     sudo apt install -y net-tools apt-transport-https curl git exiftool openvpn wireshark python3-pip
     sudo pip install requests scapy netifaces iptools pwntools
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
@@ -24,13 +24,13 @@ function installs() {
     echo -e "\033[96mI've installed net-tools, git, exiftool, pip (and a few Python packages like netifaces, requests, iptools, pwntools, or scapy), openvpn, wireshark and nvm\033[0m"
 }
 
-function tweaks() {
+tweaks() {
     sudo apt-get purge --auto-remove telnetd telnet ftp vsftpd samba nfs-kernel-server nfs-common
     sudo systemctl stop cups-browsed && sudo systemctl disable cups-browsed
 }
 
 # ⚠️: it does not monitor outgoing traffic
-function ufwrules() {
+ufwrules() {
     sudo systemctl enable ufw
     sudo apt install -y gufw
     sudo ufw default deny forward
@@ -38,12 +38,12 @@ function ufwrules() {
     sudo ufw logging on
 }
 
-function bluetooth() {
+bluetooth() {
     update-rc.d bluetooth remove
     echo 'alias net-pf-31 off' >> /etc/modprobe.conf
 }
 
-function check_that() {
+check_that() {
     echo -e "\033[96m$1\033[0m"
     select yn in "Yes" "No"; do
     case $yn in

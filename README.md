@@ -1,4 +1,4 @@
-# golinux
+# godebian
 
 A simple Bash script to configure Debian-based Linux distros
 
@@ -7,10 +7,10 @@ A simple Bash script to configure Debian-based Linux distros
 ## How to use
 
 ```
-git clone https://github.com/jmau111-org/golinux
+git clone https://github.com/jmau111-org/godebian
 sudo -s
-cd golinux
-bash golinux
+cd godebian
+bash godebian
 ```
 
 ## Opt out

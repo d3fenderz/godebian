@@ -1,8 +1,6 @@
 #!/bin/bash
 # credits: jmau111
 
-set -e
-
 if [ $UID -ne 0 ]
 then
     echo -e "\e[1;31m Ride as root, please...\033[0m"

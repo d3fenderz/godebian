@@ -1,6 +1,8 @@
 #!/bin/bash
 # credits: jmau111
 
+trap 'echo -e "\033[31mScript failed with an unexpected error!\033[0m" >&2; exit 1' ERR
+
 if [ $UID -ne 0 ]
 then
     echo -e "\e[1;31m Ride as root, please...\033[0m"

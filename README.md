@@ -2,15 +2,7 @@
 
 A simple Bash script to configure Debian-based Linux distros
 
-                 _      _     _ 
-  __ _  ___   __| | ___| |__ (_) __ _ _ __
- / _` |/ _ \ / _` |/ _ \ `_ \| |/ _` | `_ \
-| (_| | (_) | (_| |  __/ |_) | | (_| | | | |
- \__, |\___/ \__,_|\___|_.__/|_|\__,_|_| |_|
- |___/
-
-
-![](https://github.com/jmau111-org/golinux/raw/main/screenshot.png)
+![](https://github.com/jmau111-org/golinux/raw/main/screen.png)
 
 ## How to use
 

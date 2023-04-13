@@ -2,12 +2,12 @@
 
 A simple Bash script to configure Debian-based Linux distros
 
-![](https://github.com/jmau111-org/golinux/raw/main/screen.png)
+![](https://github.com/d3fenderz/godebian/raw/main/screen.png)
 
 ## How to use
 
 ```
-git clone https://github.com/jmau111-org/godebian
+git clone https://github.com/d3fenderz/godebian
 sudo -s
 cd godebian
 bash godebian
